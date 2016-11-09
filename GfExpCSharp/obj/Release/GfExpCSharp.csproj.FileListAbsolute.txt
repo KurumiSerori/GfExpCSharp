@@ -1,0 +1,10 @@
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Release\GfExp.exe.config
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Release\GfExp.exe
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Release\GfExp.pdb
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Release\System.Net.Http.dll
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExpCSharp.Form1.resources
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExp.Properties.Resources.resources
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExpCSharp.csproj.GenerateResource.Cache
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExp.exe
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExp.pdb
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExpCSharp.csprojResolveAssemblyReference.cache

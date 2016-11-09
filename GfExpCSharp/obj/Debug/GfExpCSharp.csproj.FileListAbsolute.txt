@@ -1,0 +1,9 @@
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExpCSharp.exe.config
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExpCSharp.exe
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExpCSharp.pdb
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.csprojResolveAssemblyReference.cache
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.Properties.Resources.resources
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.csproj.GenerateResource.Cache
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.exe
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.pdb
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.Form1.resources
