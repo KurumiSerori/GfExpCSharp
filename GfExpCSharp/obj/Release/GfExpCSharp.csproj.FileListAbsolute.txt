@@ -7,3 +7,4 @@ F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExp.Properties.Resources.
 F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExpCSharp.csproj.GenerateResource.Cache
 F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExp.exe
 F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExp.pdb
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Release\GfExpCSharp.csprojResolveAssemblyReference.cache
