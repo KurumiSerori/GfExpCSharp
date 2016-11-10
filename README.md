@@ -2,7 +2,9 @@
 
 ---
 
-## An easy calculator for Gf Exp
+## An easy calculator for Girls Frontline Exp
+
+![](./BinaryBackup/ScreenShot.png)
 
 因为觉得[jyying.cn](http://jyying.cn/snqxap/calclevel.html)的计算器不是很适合自己的使用，所以自己写了个类似的计算器。
 
