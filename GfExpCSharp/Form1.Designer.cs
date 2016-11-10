@@ -69,6 +69,10 @@
             this.ReadRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteRecord = new System.Windows.Forms.ToolStripMenuItem();
             this.About = new System.Windows.Forms.ToolStripMenuItem();
+            this.ExpEachx1 = new System.Windows.Forms.Label();
+            this.labelEachx1 = new System.Windows.Forms.Label();
+            this.ExpEveryTime = new System.Windows.Forms.Label();
+            this.labelExpEveryTime = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -453,11 +457,12 @@
             // 
             this.labelExpEachBattle.AutoSize = true;
             this.labelExpEachBattle.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.labelExpEachBattle.Location = new System.Drawing.Point(50, 375);
+            this.labelExpEachBattle.Location = new System.Drawing.Point(50, 425);
             this.labelExpEachBattle.Name = "labelExpEachBattle";
             this.labelExpEachBattle.Size = new System.Drawing.Size(85, 19);
             this.labelExpEachBattle.TabIndex = 108;
             this.labelExpEachBattle.Text = "每战经验";
+            this.labelExpEachBattle.Click += new System.EventHandler(this.labelExpEachBattle_Click);
             // 
             // DecreaseLv
             // 
@@ -473,7 +478,7 @@
             // 
             this.ExpEachBattle.AutoSize = true;
             this.ExpEachBattle.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.ExpEachBattle.Location = new System.Drawing.Point(172, 375);
+            this.ExpEachBattle.Location = new System.Drawing.Point(172, 425);
             this.ExpEachBattle.Name = "ExpEachBattle";
             this.ExpEachBattle.Size = new System.Drawing.Size(19, 19);
             this.ExpEachBattle.TabIndex = 110;
@@ -700,12 +705,57 @@
             this.About.Text = "关于";
             this.About.Click += new System.EventHandler(this.关于ToolStripMenuItem_Click);
             // 
+            // ExpEachx1
+            // 
+            this.ExpEachx1.AutoSize = true;
+            this.ExpEachx1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ExpEachx1.Location = new System.Drawing.Point(172, 375);
+            this.ExpEachx1.Name = "ExpEachx1";
+            this.ExpEachx1.Size = new System.Drawing.Size(19, 19);
+            this.ExpEachx1.TabIndex = 132;
+            this.ExpEachx1.Text = "0";
+            // 
+            // labelEachx1
+            // 
+            this.labelEachx1.AutoSize = true;
+            this.labelEachx1.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelEachx1.Location = new System.Drawing.Point(50, 375);
+            this.labelEachx1.Name = "labelEachx1";
+            this.labelEachx1.Size = new System.Drawing.Size(123, 19);
+            this.labelEachx1.TabIndex = 131;
+            this.labelEachx1.Text = "每战基础经验";
+            this.labelEachx1.Click += new System.EventHandler(this.label15_Click);
+            // 
+            // ExpEveryTime
+            // 
+            this.ExpEveryTime.AutoSize = true;
+            this.ExpEveryTime.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.ExpEveryTime.Location = new System.Drawing.Point(172, 475);
+            this.ExpEveryTime.Name = "ExpEveryTime";
+            this.ExpEveryTime.Size = new System.Drawing.Size(19, 19);
+            this.ExpEveryTime.TabIndex = 134;
+            this.ExpEveryTime.Text = "0";
+            // 
+            // labelExpEveryTime
+            // 
+            this.labelExpEveryTime.AutoSize = true;
+            this.labelExpEveryTime.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.labelExpEveryTime.Location = new System.Drawing.Point(50, 475);
+            this.labelExpEveryTime.Name = "labelExpEveryTime";
+            this.labelExpEveryTime.Size = new System.Drawing.Size(123, 19);
+            this.labelExpEveryTime.TabIndex = 133;
+            this.labelExpEveryTime.Text = "每场基础经验";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(778, 529);
+            this.Controls.Add(this.ExpEveryTime);
+            this.Controls.Add(this.labelExpEveryTime);
+            this.Controls.Add(this.ExpEachx1);
+            this.Controls.Add(this.labelEachx1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -799,6 +849,10 @@
         private System.Windows.Forms.ToolStripMenuItem ReadRecord;
         private System.Windows.Forms.ToolStripMenuItem About;
         private System.Windows.Forms.ToolStripMenuItem DeleteRecord;
+        private System.Windows.Forms.Label ExpEachx1;
+        private System.Windows.Forms.Label labelEachx1;
+        private System.Windows.Forms.Label ExpEveryTime;
+        private System.Windows.Forms.Label labelExpEveryTime;
     }
 }
 

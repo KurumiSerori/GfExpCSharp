@@ -236,6 +236,16 @@ namespace GfExpCSharp
             }
         }
 
+        private void label15_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelExpEachBattle_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private bool setParameters()
         {
             initialLv = Convert.ToInt32(InitialLv.Text);
@@ -568,6 +578,10 @@ namespace GfExpCSharp
             labelExpEachBattle.Text = "每战经验(x" + Convert.ToString(expandTimes) + ")";
             double expEachBattle = mapInfo[mapSelect + 1, 1] * (expandTimes * 0.5 + 0.5) * bonus;
             ExpEachBattle.Text = Convert.ToString(expEachBattle);
+            //labelEachx1.Text = "每战经验(x1)";
+            ExpEachx1.Text = Convert.ToString(mapInfo[mapSelect + 1, 1]);
+            //labelExpEveryTime.Text = "每场经验(x" + Convert.ToString(battleTimes) + ")";
+            ExpEveryTime.Text = Convert.ToString(expEachBattle * battleTimes);
 
             normalTimes = leaderTimes = mvpTimes = lmTimes = 0;
             calTimes(decreaseLv, expEachBattle);
