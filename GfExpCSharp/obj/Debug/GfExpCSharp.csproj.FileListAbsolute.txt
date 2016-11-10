@@ -1,9 +1,10 @@
-F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExpCSharp.exe.config
-F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExpCSharp.exe
-F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExpCSharp.pdb
 F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.csprojResolveAssemblyReference.cache
-F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.Properties.Resources.resources
 F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.csproj.GenerateResource.Cache
-F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.exe
-F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.pdb
 F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExpCSharp.Form1.resources
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExp.exe.config
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExp.exe
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\GfExp.pdb
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\bin\Debug\System.Net.Http.dll
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExp.Properties.Resources.resources
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExp.exe
+F:\Miscellaneous\GfExpCSharp\GfExpCSharp\obj\Debug\GfExp.pdb
