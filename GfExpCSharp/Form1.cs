@@ -36,7 +36,8 @@ namespace GfExpCSharp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            toolTipPrompt.SetToolTip(buttonHasExp, "点击按钮可以切换已有经验/剩余经验模式");
+            toolTipPrompt.SetToolTip(CalculateButton, "计算结果");
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -49,16 +50,6 @@ namespace GfExpCSharp
             else if (selected < 90) expand = 4;
             else expand = 5;
             ExpandTimes.Text = Convert.ToString(expand);
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label18_Click(object sender, EventArgs e)
-        {
-
         }
 
         int[] expByLv = new int[100];
@@ -176,16 +167,6 @@ namespace GfExpCSharp
             BattleTimes.Text = Convert.ToString(mapInfo[Convert.ToInt32(Map.SelectedIndex) + 1, 2]);
         }
 
-        private void Lv100Progress_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void ExpandTimes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         bool bonusCheck;
 
         private void button1_Click(object sender, EventArgs e)
@@ -236,14 +217,14 @@ namespace GfExpCSharp
             }
         }
 
-        private void label15_Click(object sender, EventArgs e)
+        String[] hasExpText = new String[2]{"已有经验", "还剩经验"};
+        int choice = 0;
+        private void button2_MouseDown(object sender, MouseEventArgs e)
         {
-
-        }
-
-        private void labelExpEachBattle_Click(object sender, EventArgs e)
-        {
-
+            //MessageBox.Show(hasExpText[0]);
+            //MessageBox.Show(hasExpText[1]);
+            choice = 1 - choice;
+            buttonHasExp.Text = hasExpText[choice];
         }
 
         private bool setParameters()
@@ -259,6 +240,7 @@ namespace GfExpCSharp
                 hasExp = Convert.ToInt32(hasExpString);
             }
             HasExp.Text = Convert.ToString(hasExp);
+            hasExp = (choice == 0) ? hasExp : expByLv[initialLv] - hasExp;
             targetLv = Convert.ToInt32(TargetLv.Text);
             mapSelect = Convert.ToInt32(Map.SelectedIndex);
             // MessageBox.Show(mapSelect.ToString());
@@ -268,7 +250,7 @@ namespace GfExpCSharp
             BattleTimes.Text = Convert.ToString(battleTimes);
             bonusCheck = BonusCheck.Checked;
             if (initialLv >= targetLv) return false;
-            if (hasExp < 0 || hasExp > expByLv[initialLv]) return false;
+            if (hasExp < 0 || hasExp > expByLv[initialLv] || hasExp < 0) return false;
             return true;
         }
 
@@ -282,12 +264,19 @@ namespace GfExpCSharp
             return true;
         }
 
-        int normalTimes, leaderTimes, mvpTimes, lmTimes;
+        int nextLvTimes, normalTimes, leaderTimes, mvpTimes, lmTimes;
 
         private void calTimes(int decreaseLv, double expEachBattle)
         {
             int i;
             double nowExp = hasExp;
+            while (nowExp < expByLv[initialLv])
+            {
+                nowExp += expEachBattle;
+                nextLvTimes++;
+            }
+
+            nowExp = hasExp;
             for (i = initialLv; i < decreaseLv && i < targetLv;)
             {
                 nowExp += expEachBattle;
@@ -583,13 +572,14 @@ namespace GfExpCSharp
             //labelExpEveryTime.Text = "每场经验(x" + Convert.ToString(battleTimes) + ")";
             ExpEveryTime.Text = Convert.ToString(expEachBattle * battleTimes);
 
-            normalTimes = leaderTimes = mvpTimes = lmTimes = 0;
+            nextLvTimes = normalTimes = leaderTimes = mvpTimes = lmTimes = 0;
             calTimes(decreaseLv, expEachBattle);
 
-            NormalTimes.Text = Convert.ToString(Math.Ceiling(normalTimes / (double)battleTimes));
-            LeaderTimes.Text = Convert.ToString(Math.Ceiling(leaderTimes / (double)battleTimes));
-            MVPTimes.Text = Convert.ToString(Math.Ceiling(mvpTimes / (double)battleTimes));
-            LMTimes.Text = Convert.ToString(Math.Ceiling(lmTimes / (double)battleTimes));
+            labelNextLvTimes.Text = Convert.ToString(Math.Ceiling((double)nextLvTimes / (double)battleTimes));
+            NormalTimes.Text = Convert.ToString(Math.Ceiling((double)normalTimes / (double)battleTimes));
+            LeaderTimes.Text = Convert.ToString(Math.Ceiling((double)leaderTimes / (double)battleTimes));
+            MVPTimes.Text = Convert.ToString(Math.Ceiling((double)mvpTimes / (double)battleTimes));
+            LMTimes.Text = Convert.ToString(Math.Ceiling((double)lmTimes / (double)battleTimes));
             // NormalTimes.Text = Convert.ToString(Math.Ceiling(((double)totalExp / Convert.ToDouble(ExpEachBattle.Text)) / (double)battleTimes / bonus));
             // LeaderTimes.Text = Convert.ToString(Math.Ceiling(((double)totalExp / Convert.ToDouble(ExpEachBattle.Text)) / (double)battleTimes / bonus / 1.2));
             // MVPTimes.Text = Convert.ToString(Math.Ceiling(((double)totalExp / Convert.ToDouble(ExpEachBattle.Text)) / (double)battleTimes / bonus / 1.3));
