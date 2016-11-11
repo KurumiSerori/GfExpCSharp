@@ -181,10 +181,14 @@ namespace GfExpCSharp
                 String record = System.IO.File.ReadAllText("record");
                 // MessageBox.Show(record);
                 String[] pArray = record.Split(' ');
+                // MessageBox.Show(pArray.Length.ToString());
+                if (pArray.Length < 5) return;
                 InitialLv.Text = pArray[0];
                 HasExp.Text = pArray[1];
                 TargetLv.Text = pArray[2];
                 Map.Text = pArray[3];
+                choice = Convert.ToInt32(pArray[4]);
+                buttonHasExp.Text = hasExpText[choice];
             }
             catch (System.IO.IOException)
             {
@@ -217,7 +221,7 @@ namespace GfExpCSharp
             }
         }
 
-        String[] hasExpText = new String[2]{"已有经验", "还剩经验"};
+        String[] hasExpText = new String[2]{"已有经验", "离下一级"};
         int choice = 0;
         private void button2_MouseDown(object sender, MouseEventArgs e)
         {
@@ -585,7 +589,7 @@ namespace GfExpCSharp
             // MVPTimes.Text = Convert.ToString(Math.Ceiling(((double)totalExp / Convert.ToDouble(ExpEachBattle.Text)) / (double)battleTimes / bonus / 1.3));
             // LMTimes.Text = Convert.ToString(Math.Ceiling(((double)totalExp / Convert.ToDouble(ExpEachBattle.Text)) / (double)battleTimes / bonus / 1.2 / 1.3));
 
-            System.IO.File.WriteAllText("record", InitialLv.Text + " " + HasExp.Text + " " + TargetLv.Text + " " + Map.Text);
+            System.IO.File.WriteAllText("record", InitialLv.Text + " " + HasExp.Text + " " + TargetLv.Text + " " + Map.Text + " " + choice.ToString());
             DeleteRecord.Enabled = true;
             ReadRecord.Enabled = true;
         }

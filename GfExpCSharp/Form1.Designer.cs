@@ -773,7 +773,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("宋体", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label15.Location = new System.Drawing.Point(642, 334);
+            this.label15.Location = new System.Drawing.Point(648, 334);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(28, 19);
             this.label15.TabIndex = 138;
