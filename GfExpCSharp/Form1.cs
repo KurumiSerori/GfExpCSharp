@@ -154,10 +154,10 @@ namespace GfExpCSharp
             mapInfo[4, 2] = 2;
             mapInfo[5, 0] = 80;
             mapInfo[5, 1] = 380;
-            mapInfo[5, 2] = 4;
+            mapInfo[5, 2] = 5;
             mapInfo[6, 0] = 93;
             mapInfo[6, 1] = 430;
-            mapInfo[6, 2] = 2;
+            mapInfo[6, 2] = 3;
         }
 
         int initialLv, hasExp, targetLv, mapSelect, expandTimes, battleTimes;
@@ -231,6 +231,11 @@ namespace GfExpCSharp
             buttonHasExp.Text = hasExpText[choice];
         }
 
+        private void InitialLv_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+        }
+
         private bool setParameters()
         {
             initialLv = Convert.ToInt32(InitialLv.Text);
@@ -254,7 +259,7 @@ namespace GfExpCSharp
             BattleTimes.Text = Convert.ToString(battleTimes);
             bonusCheck = BonusCheck.Checked;
             if (initialLv >= targetLv) return false;
-            if (hasExp < 0 || hasExp > expByLv[initialLv] || hasExp < 0) return false;
+            if (hasExp < 0 || hasExp >= expByLv[initialLv]) return false;
             return true;
         }
 
@@ -274,10 +279,26 @@ namespace GfExpCSharp
         {
             int i;
             double nowExp = hasExp;
+            int gap = initialLv - decreaseLv;
+            double x;
+            if (gap < 0) x = 1;
+            else if (gap < 10) x = 0.8;
+            else if (gap < 20) x = 0.6;
+            else if (gap < 30) x = 0.4;
+            else if (gap < 40) x = 0.2;
+            else x = 0;
             while (nowExp < expByLv[initialLv])
             {
-                nowExp += expEachBattle;
-                nextLvTimes++;
+                if (x != 0)
+                {
+                    nowExp += expEachBattle * x;
+                    nextLvTimes++;
+                }
+                else
+                {
+                    nowExp += 5;
+                    nextLvTimes++;
+                }
             }
 
             nowExp = hasExp;
@@ -285,57 +306,57 @@ namespace GfExpCSharp
             {
                 nowExp += expEachBattle;
                 normalTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv; i < decreaseLv + 10 && i < targetLv;)
+            for (; i < decreaseLv + 10 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.8;
                 normalTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 10; i < decreaseLv + 20 && i < targetLv;)
+            for (; i < decreaseLv + 20 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.6;
                 normalTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 20; i < decreaseLv + 30 && i < targetLv;)
+            for (; i < decreaseLv + 30 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.4;
                 normalTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 30; i < decreaseLv + 40 && i < targetLv;)
+            for (; i < decreaseLv + 40 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.2;
                 normalTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 40; i < targetLv;)
+            for (; i < targetLv;)
             {
                 nowExp += 5;
                 normalTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
@@ -347,57 +368,57 @@ namespace GfExpCSharp
             {
                 nowExp += expEachBattle * 1.2;
                 leaderTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv; i < decreaseLv + 10 && i < targetLv;)
+            for (; i < decreaseLv + 10 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.8 * 1.2;
                 leaderTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 10; i < decreaseLv + 20 && i < targetLv;)
+            for (; i < decreaseLv + 20 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.6 * 1.2;
                 leaderTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 20; i < decreaseLv + 30 && i < targetLv;)
+            for (; i < decreaseLv + 30 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.4 * 1.2;
                 leaderTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 30; i < decreaseLv + 40 && i < targetLv;)
+            for (; i < decreaseLv + 40 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.2 * 1.2;
                 leaderTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 40; i < targetLv;)
+            for (; i < targetLv;)
             {
                 nowExp += 5;
                 leaderTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
@@ -409,57 +430,57 @@ namespace GfExpCSharp
             {
                 nowExp += expEachBattle * 1.3;
                 mvpTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv; i < decreaseLv + 10 && i < targetLv;)
+            for (; i < decreaseLv + 10 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.8 * 1.3;
                 mvpTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 10; i < decreaseLv + 20 && i < targetLv;)
+            for (; i < decreaseLv + 20 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.6 * 1.3;
                 mvpTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 20; i < decreaseLv + 30 && i < targetLv;)
+            for (; i < decreaseLv + 30 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.4 * 1.3;
                 mvpTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 30; i < decreaseLv + 40 && i < targetLv;)
+            for (; i < decreaseLv + 40 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.2 * 1.3;
                 mvpTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 40; i < targetLv;)
+            for (; i < targetLv;)
             {
                 nowExp += 5;
                 mvpTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
@@ -471,57 +492,57 @@ namespace GfExpCSharp
             {
                 nowExp += expEachBattle * 1.2 * 1.3;
                 lmTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv; i < decreaseLv + 10 && i < targetLv;)
+            for (; i < decreaseLv + 10 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.8 * 1.2 * 1.3;
                 lmTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 10; i < decreaseLv + 20 && i < targetLv;)
+            for (; i < decreaseLv + 20 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.6 * 1.2 * 1.3;
                 lmTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 20; i < decreaseLv + 30 && i < targetLv;)
+            for (; i < decreaseLv + 30 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.4 * 1.2 * 1.3;
                 lmTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 30; i < decreaseLv + 40 && i < targetLv;)
+            for (; i < decreaseLv + 40 && i < targetLv;)
             {
                 nowExp += expEachBattle * 0.2 * 1.2 *1.3;
                 lmTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;
                 }
             }
-            for (i = decreaseLv + 40; i < targetLv;)
+            for (; i < targetLv;)
             {
                 nowExp += 5;
                 lmTimes++;
-                if (nowExp >= expByLv[i])
+                while (nowExp >= expByLv[i])
                 {
                     nowExp -= expByLv[i];
                     ++i;

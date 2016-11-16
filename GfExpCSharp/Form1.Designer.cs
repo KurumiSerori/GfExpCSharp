@@ -195,6 +195,7 @@
             this.InitialLv.Size = new System.Drawing.Size(121, 23);
             this.InitialLv.TabIndex = 0;
             this.InitialLv.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.InitialLv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.InitialLv_KeyPress);
             // 
             // label1
             // 
@@ -329,7 +330,7 @@
             this.TargetLv.MaxDropDownItems = 5;
             this.TargetLv.Name = "TargetLv";
             this.TargetLv.Size = new System.Drawing.Size(121, 23);
-            this.TargetLv.TabIndex = 3;
+            this.TargetLv.TabIndex = 2;
             // 
             // HasExp
             // 
@@ -337,7 +338,7 @@
             this.HasExp.Location = new System.Drawing.Point(150, 96);
             this.HasExp.Name = "HasExp";
             this.HasExp.Size = new System.Drawing.Size(121, 25);
-            this.HasExp.TabIndex = 2;
+            this.HasExp.TabIndex = 1;
             // 
             // label4
             // 
@@ -367,7 +368,7 @@
             this.Map.Location = new System.Drawing.Point(150, 196);
             this.Map.Name = "Map";
             this.Map.Size = new System.Drawing.Size(121, 23);
-            this.Map.TabIndex = 4;
+            this.Map.TabIndex = 3;
             this.Map.SelectedIndexChanged += new System.EventHandler(this.Map_SelectedIndexChanged);
             // 
             // label5
@@ -395,7 +396,7 @@
             this.ExpandTimes.Location = new System.Drawing.Point(510, 50);
             this.ExpandTimes.Name = "ExpandTimes";
             this.ExpandTimes.Size = new System.Drawing.Size(50, 23);
-            this.ExpandTimes.TabIndex = 1;
+            this.ExpandTimes.TabIndex = 4;
             this.ExpandTimes.Tag = "";
             // 
             // label6
@@ -414,7 +415,7 @@
             this.BonusCheck.Location = new System.Drawing.Point(490, 202);
             this.BonusCheck.Name = "BonusCheck";
             this.BonusCheck.Size = new System.Drawing.Size(18, 17);
-            this.BonusCheck.TabIndex = 5;
+            this.BonusCheck.TabIndex = 6;
             this.BonusCheck.UseVisualStyleBackColor = true;
             // 
             // CalculateButton
@@ -580,7 +581,7 @@
             this.BattleTimes.Location = new System.Drawing.Point(510, 100);
             this.BattleTimes.Name = "BattleTimes";
             this.BattleTimes.Size = new System.Drawing.Size(50, 23);
-            this.BattleTimes.TabIndex = 121;
+            this.BattleTimes.TabIndex = 5;
             this.BattleTimes.Tag = "";
             // 
             // label8
@@ -657,6 +658,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(201, 42);
             this.button1.TabIndex = 129;
+            this.button1.TabStop = false;
             this.button1.Text = "不清楚自己该刷哪个图？";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -745,6 +747,7 @@
             this.buttonHasExp.Name = "buttonHasExp";
             this.buttonHasExp.Size = new System.Drawing.Size(97, 34);
             this.buttonHasExp.TabIndex = 135;
+            this.buttonHasExp.TabStop = false;
             this.buttonHasExp.Text = "已有经验";
             this.buttonHasExp.UseVisualStyleBackColor = false;
             this.buttonHasExp.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
